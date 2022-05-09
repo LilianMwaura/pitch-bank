@@ -1,1 +1,23 @@
-<h1>Wambui</h1>
+{% extends "bootstrap/base.html" %}
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+<link
+    href="https://fonts.googleapis.com/css2?family=Lora&family=Nunito:wght@200&family=Quicksand&family=Roboto&family=Roboto+Slab:wght@300;400&family=Zen+Antique&display=swap"
+    rel="stylesheet">
+{% endblock %}
+{% block content%}
+
+<div class="container-fluid">
+    <div class="jumbotron text-center">
+        <p class='wrd'>Welcome to</p>
+        <h1 class="display-4 intro">PITCH PERFECT</h1>
+        <p class='wrd'>Make your sixty seconds count</p>
+
+        <a href="{{ url_for('main.signup') }}"><button class="btn btn-light">Sign-up</button></a>
+        <a href="{{ url_for('main.login') }}"><button type="button" class="btn btn-dark">Login</button></a>
+    </div>
+</div>
+
+
+{% endblock %}

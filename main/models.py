@@ -1,8 +1,9 @@
 from flask_sqlalchemy import SQLAlchemy
 from ..app import db
+from . import login_manager
 
 
-class Users(db.Model):
+class Users(UserMixin,db.Model):
     __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String , unique = True, nullable=False)
@@ -13,6 +14,9 @@ class Users(db.Model):
     def __repr__(self):
        return f"User('{self.username}')"
 
+    @login_manager.user_loader
+    def load_user(user_id):
+        return Users.query.get(int(user_id))   
 # class Categories(db.Model):
 #     __tablename__ = 'categories'
 
