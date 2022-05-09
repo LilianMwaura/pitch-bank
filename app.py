@@ -4,8 +4,9 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from .main.main import main_blueprint
-
 db = SQLAlchemy()
+from .main import models
+
 def create_app():
     app = Flask(__name__)
     app.register_blueprint(main_blueprint)
@@ -13,7 +14,7 @@ def create_app():
     db.init_app(app)
     migrate = Migrate(app,db)
 
-    
+
     return app 
 
 if __name__ == '__main__':
