@@ -1,0 +1,20 @@
+{% extends "bootstrap/base.html" %}
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+<link
+    href="https://fonts.googleapis.com/css2?family=Lora&family=Nunito:wght@200&family=Quicksand&family=Roboto&family=Roboto+Slab:wght@300;400&family=Zen+Antique&display=swap"
+    rel="stylesheet">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="jumbotron jumbotron-fluid text-center">
+    <div class="container">
+      <h2 class="display-4">CONGRATULATIONS!</h2> 
+      <p class="lead">You have successfully created a Pitch Perfect account</p>
+      <a href="{{ url_for('main.login') }}"><button class="btn btn-primary">Proceed to Login</button></a>
+    </div>
+  </div>
+{% endblock %}
