@@ -1,0 +1,52 @@
+{% extends "bootstrap/base.html" %}
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+<link
+    href="https://fonts.googleapis.com/css2?family=Lora&family=Nunito:wght@200&family=Quicksand&family=Roboto&family=Roboto+Slab:wght@300;400&family=Zen+Antique&display=swap"
+    rel="stylesheet">
+{% endblock %}
+
+
+{% block content %}
+<div class="container-fluid nav text-center">
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            <a class="nav-link" href="{{url_for('main.dashboard')}}">
+                <h3>DASHBOARD</h3>
+            </a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            <a class="nav-link" href="{{ url_for('main.profile')}}">
+                <h3>PROFILE</h3>
+            </a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            <a class="nav-link" href="{{url_for('main.logout')}}">
+                <h3>LOGOUT</h3>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <h3>USER INFORMATION</h3>
+            <p>USERNAME: {{ name }}</p>
+            <p>USER EMAIL ADDRESS: {{ email }}</p>
+        </div>
+        <div class="col-lg-8 col-md-8 col-sm-6">
+            <h3>PITCHES SUBMITTED</h3>
+            <div>
+                {% for p in pitch %}
+                <p>Title: {{p.title}} </p>
+                <p>Category: {{p.category}}</p>
+                <p>Content of the pitch: {{p.description}}</p>
+                <hr>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
