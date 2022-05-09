@@ -1,0 +1,2 @@
+Hi {{username}}!
+Welcome to Pitch Perfect! You can begin submitting and viewing various pitches at our website.
