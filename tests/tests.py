@@ -1,10 +1,10 @@
 import unittest
-from ..models import User, Pitch
+from app.models import Users, Pitch, Comment
 
 class UserModelTest(unittest.TestCase):
     
     def setUp(self):
-        self.new_user = User(password = 'banana')
+        self.new_user = Users(password = 'banana')
 
     def test_password_setter(self):
         self.assertTrue(self.new_user.pass_secure is not None)

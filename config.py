@@ -2,8 +2,21 @@ import os
 from dotenv import load_dotenv, find_dotenv
 load_dotenv (find_dotenv ())
 
-class Config (object):
-    SQLALCHEMY_DATABASE_URI= os.getenv('DATABASE_URL')
-    DEBUG =os.getenv('DEBUG')
 
-    
+class Config:
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://wambui:db_password@localhost/pitchbank'
+    # SECRET_KEY = os.environ.get('SECRET_KEY')
+
+class ProdConfig(Config):
+    # SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL").replace("://", "ql://", 1)  
+    ...
+
+class DevConfig(Config):
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://wambui:db_password@localhost/pitchbank'
+    # SECRET_KEY = 'thisismysecret'
+    DEBUG = True
+
+config_options = {
+'development':DevConfig,
+'production':ProdConfig
+} 

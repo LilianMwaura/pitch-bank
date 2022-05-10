@@ -1,6 +1,5 @@
-from flask_sqlalchemy import SQLAlchemy
-from .main import db
-from .main import login_manager
+from flask_login import UserMixin
+from . import db,login_manager
 
 
 class Users(UserMixin,db.Model):
@@ -15,15 +14,11 @@ class Users(UserMixin,db.Model):
        return f"User('{self.username}')"
 
     @login_manager.user_loader
-    def load_user(user_id):
-        return Users.query.get(int(user_id))   
-# class Categories(db.Model):
-#     __tablename__ = 'categories'
-
-#     id= db.Column(db.Integer, primary_key = True)
-#     # name = db.Column(db.String)
+    def load_user(user):
+        return Users.query.get(int(user))   
  
-class Pitches(db.Model):
+class Pitch(db.Model):
+    __tablename__ = 'pitches'
     id= db.Column(db.Integer, primary_key = True)
     owner_id = db.Column(db.Integer, db.ForeignKey ("user.id"), nullable=False)
     description = db.Column(db.String(), index=True)
@@ -31,24 +26,20 @@ class Pitches(db.Model):
     category = db.Column(db.String(255), nullable=False)  
     def __repr__(self):
             return f'Pitch {self.description}'  
-    # category = db.relationship(Categories, backref=db.backref("pitches"), lazy = True)
+    
 
 
 class Comment(db.Model):
+    __tablename__ = 'comment'
     id= db.Column(db.Integer, primary_key = True)
     owner_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     content = db.Column(db.String(255), index=True)
     def __repr__(self):
             return f'Comment {self.content}'
 
-    # comment = db.Column(db.Text)
+    
 
-class Votes(db.Model):
-      id= db.Column(db.Integer, primary_key = True)
-      up_votes = db.Column(db.Integer)
-      down_votes = db.Column(db.Integer)
-      def __repr__(self):
-            return f'Votes{self.votes}'
+
 
 
 
