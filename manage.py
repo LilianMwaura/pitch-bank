@@ -5,7 +5,7 @@ from app.models import *
 
 
 # Creating app instance
-FLASK_APP=app = create_app('production')
+app = create_app('production')
 
 manager = Manager(app)
 manager.add_command('server',Server)

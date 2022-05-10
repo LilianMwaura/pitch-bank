@@ -1,0 +1,105 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+<link
+    href="https://fonts.googleapis.com/css2?family=Lora&family=Nunito:wght@200&family=Quicksand&family=Roboto&family=Roboto+Slab:wght@300;400&family=Zen+Antique&display=swap"
+    rel="stylesheet">
+{% endblock %}
+
+
+{% block content %}
+<div class="container-fluid nav text-center">
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            <h3>PITCH PERFECT</h3>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            <a class="nav-link" href="{{ url_for('main.profile')}}">
+                <h3>PROFILE</h3>
+            </a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            <a class="nav-link" href="{{url_for('main.logout')}}">
+                <h3>LOGOUT</h3>
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<div class="container text-center">
+    <h1 class="welcome">WELCOME, {{ name }}</h1>
+    <p>Pitch Perfect allows you to put forth pitches in various categories. You can browse the page to view posted
+        pitches or submit your own.</p>
+</div>
+
+<div class="container-fluid categories">
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body text-center">
+                    <h4 class="card-title">BUSINESS PITCH</h4>
+                    <p class="card-text">A promising business idea that will be guaranteed to take off.</p>
+                    <a href="{{ url_for('main.pitch') }}" class="btn btn-primary">Submit Your Pitch</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body text-center">
+                    <h4 class="card-title">INNOVATION PITCH</h4>
+                    <p class="card-text">A new and exciting idea, relevant for the present times.</p>
+                    <a href="{{ url_for('main.pitch') }}" class="btn btn-primary">Submit Your Pitch</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body text-center">
+                    <h4 class="card-title">PICKUP LINE</h4>
+                    <p class="card-text">Creative pick-up lines that will make you unforgettable!</p>
+                    <a href="{{ url_for('main.pitch') }}" class="btn btn-primary">Submit Your Pitch</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="text-center">
+    <h3>BELOW ARE VARIOUS SUBMITTED PITCHES</h3>
+
+</div>
+<div class="container pitches-section">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6">
+
+            {% for p in pitch %}
+            <p>TITLE: {{p.title}} </p>
+            <p>CATEGORY: {{p.category}}</p>
+            <p>PITCH: {{p.description}}</p>
+            <p>Submitted by: {{p.owner.username}}</p>
+
+
+            <form class="form-signin" method="POST" action="/dashboard">
+                {{ form.hidden_tag() }}
+                {{ wtf.form_field(form.content) }}
+                <button class="btn btn-lg btn-primary btn-block comment-btn" type="submit">Post comment</button>
+            </form>
+            <hr>
+            {% endfor %}
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6">
+            {% for comment in comments %}
+            <p> {{comment.content}}</p>
+
+            {% endfor %}
+        </div>
+
+
+    </div>
+
+</div>
+{% endblock %}
