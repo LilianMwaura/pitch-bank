@@ -12,6 +12,7 @@ flask-wtf = "*"
 flask-login = "*"
 flask-mail = "*"
 email-validator = "*"
+flask-script = "*"
 
 [dev-packages]
 
