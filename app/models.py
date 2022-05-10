@@ -1,6 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
-from ..app import db
-from . import login_manager
+from .main import db
+from .main import login_manager
 
 
 class Users(UserMixin,db.Model):
