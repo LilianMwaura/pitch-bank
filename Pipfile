@@ -9,6 +9,7 @@ argcomplete = "==2.0.0"
 markupsafe = "==2.0.1"
 django-cors-headers = "*"
 gunicorn = "*"
+psycopg2 = "*"
 
 [dev-packages]
 
