@@ -1,16 +1,18 @@
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Lora';
+    font-family: 'Special Elite', cursive;
     font-weight: lighter;
 }
 
 .intro {
- 
+    font-family: "Poppins", sans-serif;
     letter-spacing: 5px;
 }
-
-.wrd {
-    font-family: 'Roboto';
+p{
+    font-family: "Poppins", sans-serif;  
 }
+.wrd {
+    font-family: "Poppins", sans-serif;
+} 
 
 .btn {
     background-color: #406343;
@@ -23,11 +25,6 @@ h1, h2, h3, h4, h5, h6 {
     background-color: white;
     border: 2px solid #406343;
     transition: 200ms;
-}
-
-p {
-    font-weight: bold;
-    font-family: 'Roboto'
 }
 
 .jumbotron {
