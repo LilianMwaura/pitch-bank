@@ -11,6 +11,7 @@ django-cors-headers = "*"
 gunicorn = "*"
 psycopg2 = "*"
 flask-bootstrap = "*"
+flask-sqlalchemy = "*"
 
 [dev-packages]
 
