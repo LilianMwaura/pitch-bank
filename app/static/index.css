@@ -1,0 +1,93 @@
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lora';
+    font-weight: lighter;
+}
+
+.intro {
+ 
+    letter-spacing: 5px;
+}
+
+.wrd {
+    font-family: 'Roboto';
+}
+
+.btn {
+    background-color: #406343;
+    color: white;
+    
+}
+
+.btn:hover {
+    color: #406343;
+    background-color: white;
+    border: 2px solid #406343;
+    transition: 200ms;
+}
+
+p {
+    font-weight: bold;
+    font-family: 'Roboto'
+}
+
+.jumbotron {
+    margin: 10% auto 0;
+    width: 70%;
+    background-color: #D4ECDD;
+}
+
+.signup {
+    border: 3px solid #406343;
+    width: 30%;
+    margin: 5% auto 0;
+    padding: 3%;
+}
+
+.failure {
+    background-color: #C85C5C;
+}
+.again {
+    background-color: white;
+    color: black;
+}
+.again:hover {
+    color: white;
+    background-color: black;
+    transition: 200ms;
+}
+
+.back {
+    margin: 1%;
+}
+
+.nav {
+    margin: 3% auto;
+    background-color: #406343;
+    color: #fff;
+    height: 15vh;
+    padding: auto;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: white;
+}
+
+.pitch-btn {
+    margin: 1%;
+    padding: 1%;
+}
+
+.categories {
+    margin:5% 0 5% 10%;
+    padding: 1%;
+}
+
+.comment-btn {
+    width: 20%;
+    font-size: 1rem;
+}
+
+.pitches-section {
+    margin-top: 4%;
+}
