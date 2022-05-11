@@ -16,6 +16,7 @@ flask-login = "*"
 flask-migrate = "*"
 flask-wtf = "*"
 email-validator = "*"
+flask-script = "*"
 
 [dev-packages]
 
