@@ -2,7 +2,7 @@ import os
 
 
 class Config:
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://wambui:db_password@localhost/pitchbank'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://wambui:db_password@localhost:5432/pitchbank'
     SECRET_KEY = os.environ.get('SECRET_KEY')
     DEBUG = True
 
@@ -11,7 +11,7 @@ class ProdConfig(Config):
     ...
 
 class DevConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://wambui:db_password@localhost/pitchbank'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://wambui:db_password@localhost:5432/pitchbank'
     SECRET_KEY = 'thisismysecret'
     DEBUG = True
 
