@@ -1,6 +1,5 @@
-from distutils.debug import DEBUG
 import os
-from pickle import TRUE
+
 
 class Config:
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://wambui:db_password@localhost/pitchbank'
@@ -8,7 +7,7 @@ class Config:
     DEBUG = True
 
 class ProdConfig(Config):
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL").replace("://", "ql://", 1)  
+#     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL").replace("://", "ql://", 1)  
     ...
 
 class DevConfig(Config):
