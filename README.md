@@ -2,7 +2,7 @@
 PitchBank
 
 ## Project Description
-This is a pitch application that allowa users to signn up and login. They are also able to submit their own pitches into different categorieas as well as read other peoples pitchs. 
+This is a pitch application that allows users to sign up and login. They are also able to submit their own pitches into different categories as well as read other peoples pitches. 
 ## Set-up Instructions
 Open Terminal {Ctrl+Alt+T}
 
